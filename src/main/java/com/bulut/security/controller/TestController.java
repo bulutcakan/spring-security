@@ -6,7 +6,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @RequestMapping("/test")
@@ -14,9 +16,26 @@ public class TestController {
 
     @Autowired
     DataGeneratorService dataGeneratorService;
-
+/*
     @GetMapping
     public ResponseEntity testEndPoint() {
         return new ResponseEntity(dataGeneratorService.getSampleData(), HttpStatus.ACCEPTED);
     }
+*/
+    @RequestMapping("/sample")
+    public ModelAndView getOwners() {
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("samples", dataGeneratorService.getSampleData());
+        mav.setViewName("sample");
+        return mav;
+    }
+
+
+
+    @RequestMapping("/pcs")
+    @ResponseBody
+    public String welcome() {
+        return "Welcome to PetClinic World!";
+    }
+
 }
