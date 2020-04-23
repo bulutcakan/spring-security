@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/test")
 public class TestController {
@@ -17,6 +19,10 @@ public class TestController {
     @Autowired
     DataGeneratorService dataGeneratorService;
 
+    @GetMapping("/users")
+    public List getUser() {
+        return dataGeneratorService.getSampleData();
+    }
 
     @RequestMapping("/sample")
     public ModelAndView getOwners() {
