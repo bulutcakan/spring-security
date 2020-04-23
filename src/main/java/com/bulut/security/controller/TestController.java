@@ -16,12 +16,8 @@ public class TestController {
 
     @Autowired
     DataGeneratorService dataGeneratorService;
-/*
-    @GetMapping
-    public ResponseEntity testEndPoint() {
-        return new ResponseEntity(dataGeneratorService.getSampleData(), HttpStatus.ACCEPTED);
-    }
-*/
+
+
     @RequestMapping("/sample")
     public ModelAndView getOwners() {
         ModelAndView mav = new ModelAndView();
@@ -30,6 +26,11 @@ public class TestController {
         return mav;
     }
 
+    @GetMapping("/sampledata")
+    public ResponseEntity getData() {
+
+        return new ResponseEntity(dataGeneratorService.getSampleData(), HttpStatus.ACCEPTED);
+    }
 
 
     @RequestMapping("/pcs")

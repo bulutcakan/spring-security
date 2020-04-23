@@ -13,4 +13,11 @@ public class IndexController {
         mav.setViewName("index");
         return mav;
     }
+
+    @RequestMapping(value = {"/login", "/login.html"})
+    public ModelAndView getLogin() {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("login");
+        return mav;
+    }
 }
