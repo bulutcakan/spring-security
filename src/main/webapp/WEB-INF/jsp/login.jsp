@@ -13,9 +13,11 @@
     Username:<input name="username" type="text" /><br /> Password:<input
         name="password" type="password" /><br /> <input
         type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+    Remember Me:<input name="remember-me" type="checkbox"><br/>
     <input type="submit" value="Login">
 </form>
-<font color="red"> <c:if test="${not empty param.loginFailed}">
+<font color="red">
+    <c:if test="${not empty param.loginFailed}">
         <c:out value="Login Failed, Incorrect Username or Password"></c:out>
     </c:if>
 </body>
